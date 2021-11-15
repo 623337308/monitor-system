@@ -1,15 +1,17 @@
 import os from 'os-utils'
-import http from 'http'
-import socket from 'socket.io'
-import { diskinfo, DiskInfo } from '@dropb/diskinfo';
+import * as http from 'http'
+import * as socket from 'socket.io'
+import { diskinfo } from '@dropb/diskinfo';
 
 const server = http.createServer()
 const io = new socket.Server(server);
-server.listen(4000);
+server.listen(4000, function () {
+  console.log('listen on 4000');
+});
 
 io.sockets.on('connection', socket => {
   socket.emit("connected", "连接成功")
-  console.log("连接成功", socket)
+  console.log("连接成功")
   socket.on("disconnect", () => {
     console.log("disconnect")
   })
@@ -32,7 +34,6 @@ async function start(): Promise<void> {
   const loadavg = [os.loadavg(1), os.loadavg(5), os.loadavg(15)]
   // sockets
   io.sockets.emit("systemInfo", { freemem, totalmem, freememPercentage, sysUptime, loadavg, diskinfo: await diskinfo() })
-  console.log(freemem, totalmem, freememPercentage, sysUptime, loadavg)
   await sleep(1000)
   start()
 }
