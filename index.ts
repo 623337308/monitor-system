@@ -4,7 +4,9 @@ import * as socket from 'socket.io'
 import { diskinfo } from '@dropb/diskinfo';
 
 const server = http.createServer()
-const io = new socket.Server(server);
+const io = new socket.Server(server, {
+  "transports": ['websocket', 'polling']
+});
 server.listen(4000, function () {
   console.log('listen on 4000');
 });
