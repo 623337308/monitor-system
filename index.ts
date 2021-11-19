@@ -1,20 +1,26 @@
 import osu from 'node-os-utils'
+import minimist from 'minimist'
 import * as http from 'http'
 import * as socket from 'socket.io'
 import { diskinfo } from '@dropb/diskinfo';
-
+import { DefaultEventsMap } from 'socket.io/dist/typed-events';
+const args = minimist(process.argv.slice(2))
 const { cpu, os, users, mem, netstat } = osu
 const server = http.createServer()
 const io = new socket.Server(server, {
   transports: ['websocket', 'polling']
 });
 
-server.listen(4000, function () {
+const port = args?.p || 4000
+server.listen(port, function () {
   console.log('listen on 4000');
 });
 
-io.sockets.on('connection', socket => {
+io.sockets.on('connection', (socket: socket.Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>) => {
+  const { headers: { origin }, time } = socket.handshake
   console.log("连接成功")
+  console.log('origin', origin)
+  console.log('time', time)
   socket.emit("connected", {
     type: os.type(), // 平台类型 linux
     arch: os.arch(), // x64 x32
