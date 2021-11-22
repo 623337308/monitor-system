@@ -13,7 +13,7 @@ const io = new socket.Server(server, {
 
 const port = args?.p || 4000
 server.listen(port, function () {
-  console.log('listen on 4000');
+  console.log(`listen on ${port}`);
 });
 
 io.sockets.on('connection', (socket: socket.Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>) => {
