@@ -5,9 +5,9 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon --config nodemon.json index.ts",
-    "tsc": "tsc -w",
+    "tsc": "tsc --noEmit",
     "pm2": "pm2 start dist/index.js --name serve-monitor",
-    "build": "docker build -t monitor/serve ."
+    "docker": "docker build -t monitor/serve ."
   },
   "license": "ISC",
   "dependencies": {
