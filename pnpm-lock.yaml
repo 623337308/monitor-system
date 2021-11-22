@@ -10,7 +10,6 @@ specifiers:
   nodemon: ^2.0.15
   socket.io: ^4.3.2
   ts-node: ^10.4.0
-  typescript: ^4.4.4
 
 dependencies:
   '@dropb/diskinfo': registry.npmmirror.com/@dropb/diskinfo/3.0.0
@@ -21,8 +20,7 @@ dependencies:
   node-os-utils: registry.npmmirror.com/node-os-utils/1.3.5
   nodemon: registry.npmmirror.com/nodemon/2.0.15
   socket.io: registry.npmmirror.com/socket.io/4.3.2
-  ts-node: registry.npmmirror.com/ts-node/10.4.0_ee928ac548ac44c173bf0d4654ae2c29
-  typescript: registry.npmmirror.com/typescript/4.4.4
+  ts-node: registry.npmmirror.com/ts-node/10.4.0_@types+node@16.11.7
 
 packages:
 
@@ -1281,7 +1279,7 @@ packages:
       ansi-regex: registry.nlark.com/ansi-regex/5.0.1
     dev: false
 
-  registry.npmmirror.com/ts-node/10.4.0_ee928ac548ac44c173bf0d4654ae2c29:
+  registry.npmmirror.com/ts-node/10.4.0_@types+node@16.11.7:
     resolution: {integrity: sha1-aA+IlFiF9ObPRQ5/DWIj3UBIlfc=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ts-node/download/ts-node-10.4.0.tgz}
     id: registry.npmmirror.com/ts-node/10.4.0
     name: ts-node
@@ -1310,7 +1308,6 @@ packages:
       create-require: registry.nlark.com/create-require/1.1.1
       diff: registry.nlark.com/diff/4.0.2
       make-error: registry.nlark.com/make-error/1.3.6
-      typescript: registry.npmmirror.com/typescript/4.4.4
       yn: registry.nlark.com/yn/3.1.1
     dev: false
 
@@ -1319,14 +1316,6 @@ packages:
     name: type-fest
     version: 0.20.2
     engines: {node: '>=10'}
-    dev: false
-
-  registry.npmmirror.com/typescript/4.4.4:
-    resolution: {integrity: sha1-LNAaGh8WBwTTEB/VpY/w+fy4Aww=, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/typescript/download/typescript-4.4.4.tgz}
-    name: typescript
-    version: 4.4.4
-    engines: {node: '>=4.2.0'}
-    hasBin: true
     dev: false
 
   registry.npmmirror.com/undefsafe/2.0.5:
